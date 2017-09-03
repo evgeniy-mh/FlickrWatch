@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-
-import { Picture } from "../../classes/picture";
 import { Observable, Subscription, Subject } from 'rxjs/Rx';
+
+import { PictureService } from '../../services/flickr.service';
+import { Picture } from "../../classes/picture";
 
 @Component({
     selector: "app-picture-grid",
@@ -20,14 +21,14 @@ export class PictureGridComponent implements OnInit {
     public rowInput = 10;
     public colsInput = 5;
 
-    constructor() {
-        for (let i = 0; i < 50; i++) {
-            this.pictures.push({ id: i, title: `Picture ${i}`, ulr: `Url for ${i}` });
-        }
-    }
+    constructor(private pictureService: PictureService) { }
 
     ngOnInit() {
         this.initGrid();
+
+        this.pictureService.getRecent().subscribe((result)=>{
+            this.pictures=result;
+        });
     }
 
     getGridSpec(length: number, size?: number): string {
