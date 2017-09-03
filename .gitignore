@@ -10,3 +10,6 @@ platforms/
 tmp/
 typings/
 report/
+
+app/classes/FlickrApiConfig.ts
+.directory
