@@ -26,6 +26,11 @@ export class PictureGridComponent implements OnInit {
     ngOnInit() {
         this.initGrid();
 
+        
+    }
+
+    load(){
+        console.log("load");
         this.pictureService.getRecent().subscribe((result)=>{
             this.pictures=result;
         });

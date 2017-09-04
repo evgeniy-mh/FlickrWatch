@@ -19,7 +19,8 @@ import { PictureGridComponent } from "./components/picture-grid/picture-grid.com
     ],
     imports: [
         NativeScriptModule,
-        AppRoutingModule
+        AppRoutingModule,
+        NativeScriptHttpModule
     ],
     declarations: [
         AppComponent,

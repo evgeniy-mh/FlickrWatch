@@ -1,11 +1,14 @@
-<ScrollView orientation="vertical">
-    <GridLayout columns={{getGridSpec(colsInput)}} rows={{getGridSpec(rowInput,100)}}>
-        <div *ngFor="let r of rows | async">
-            <div *ngFor="let c of cols | async">
+<StackLayout orientation="vertical">
+    <Button text="load images" (tap)="load()"></Button>
+    <ScrollView orientation="vertical">
+        <GridLayout columns={{getGridSpec(colsInput)}} rows={{getGridSpec(rowInput,100)}} style.backgroundColor="lightgray">
+            <div *ngFor="let r of rows | async">
+                <div *ngFor="let c of cols | async">
 
-                <Label row={{r}} col={{c}} text={{pictures[getPositionInArray(r,c)].title}}></Label>
+                    <Label *ngIf="pictures[getPositionInArray(r,c)]" row={{r}} col={{c}} text={{pictures[getPositionInArray(r,c)].title}}></Label>
 
+                </div>
             </div>
-        </div>
-    </GridLayout>
-</ScrollView>
+        </GridLayout>
+    </ScrollView>
+</StackLayout>
