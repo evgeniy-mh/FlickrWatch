@@ -24,9 +24,7 @@ export class PictureGridComponent implements OnInit {
     constructor(private pictureService: PictureService) { }
 
     ngOnInit() {
-        this.initGrid();
-
-        
+        this.initGrid();        
     }
 
     load(){
@@ -44,7 +42,6 @@ export class PictureGridComponent implements OnInit {
             } else {
                 resSpec.push("*");
             }
-
         }
         return resSpec.join(",");
     }
