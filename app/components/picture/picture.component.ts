@@ -4,8 +4,8 @@ import { Picture } from '../../classes/picture';
 
 @Component({
     selector: 'app-picture',
-    templateUrl: 'picture.component.html',
-    styleUrls:['picture.component.css']
+    templateUrl: './components/picture/picture.component.html',
+    styleUrls:['./components/picture/picture.component.css']
 })
 
 export class PictureComponent implements OnInit {
