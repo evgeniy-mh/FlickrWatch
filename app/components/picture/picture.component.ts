@@ -5,7 +5,7 @@ import { Picture } from '../../classes/picture';
 @Component({
     selector: 'app-picture',
     templateUrl: './components/picture/picture.component.html',
-    styleUrls:['./components/picture/picture.component.css']
+    styleUrls: ['./components/picture/picture.component.css']
 })
 
 export class PictureComponent implements OnInit {
@@ -15,4 +15,8 @@ export class PictureComponent implements OnInit {
     constructor() { }
 
     ngOnInit() { }
+
+    getPhotoSourceURL() {
+        return `https://farm${this.picture.farm}.staticflickr.com/${this.picture.server}/${this.picture.id}_${this.picture.secret}_q.jpg`;
+    }
 }
