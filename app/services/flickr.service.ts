@@ -17,7 +17,7 @@ export class PictureService {
         let headers = new Headers();
         headers.append('Accept', 'application/xml');
 
-        /* let params: URLSearchParams = new URLSearchParams();
+        /* let params: URLSearchParams = new URLSearchParams();  //<<-- weird bug with URLSearchParams
         params.set("method", "flickr.photos.getRecent");
         params.set("api_key", "FlickrApiConfig.KEY");
         params.set("format", "json");

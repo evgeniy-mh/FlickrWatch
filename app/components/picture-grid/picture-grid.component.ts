@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Observable, Subscription, Subject } from 'rxjs/Rx';
 
 import { PictureService } from '../../services/flickr.service';
+import { PictureComponent } from '../picture/picture.component';
 import { Picture } from "../../classes/picture";
 
 @Component({
@@ -24,13 +25,13 @@ export class PictureGridComponent implements OnInit {
     constructor(private pictureService: PictureService) { }
 
     ngOnInit() {
-        this.initGrid();        
+        this.initGrid();
     }
 
-    load(){
+    load() {
         console.log("load");
-        this.pictureService.getRecent().subscribe((result)=>{
-            this.pictures=result;
+        this.pictureService.getRecent().subscribe((result) => {
+            this.pictures = result;
         });
     }
 
