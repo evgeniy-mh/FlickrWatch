@@ -5,10 +5,6 @@ import { AppComponent } from "./app.component";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { NativeScriptHttpModule } from "nativescript-angular/http";
 
-import { ItemService } from "./item/item.service";
-import { ItemsComponent } from "./item/items.component";
-import { ItemDetailComponent } from "./item/item-detail.component";
-
 import { PictureService } from './services/flickr.service';
 import { PictureGridComponent } from "./components/picture-grid/picture-grid.component";
 
@@ -24,14 +20,10 @@ import { PictureGridComponent } from "./components/picture-grid/picture-grid.com
     ],
     declarations: [
         AppComponent,
-        ItemsComponent,
-        ItemDetailComponent,
 
         PictureGridComponent
     ],
     providers: [
-        ItemService,
-
         PictureService
     ],
     schemas: [
