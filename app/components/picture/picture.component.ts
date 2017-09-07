@@ -10,11 +10,9 @@ import { Picture } from '../../classes/picture';
 
 export class PictureComponent implements OnInit {
 
-    //@Input() picture: Picture;
+    @Input() picture: Picture;
 
-    constructor() {
-        console.log("PictureComponent");
-     }
+    constructor() { }
 
     ngOnInit() { }
 }
