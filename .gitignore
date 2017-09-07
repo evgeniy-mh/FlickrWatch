@@ -13,3 +13,5 @@ report/
 
 app/classes/FlickrApiConfig.ts
 .directory
+
+worklog
