@@ -3,7 +3,9 @@ import { Observable, Subscription, Subject } from 'rxjs/Rx';
 
 import { PictureService } from '../../services/flickr.service';
 import { PictureComponent } from '../picture/picture.component';
-import { Picture } from "../../classes/picture";
+import { Photo } from "../../classes/photo";
+
+import { Photos } from "../../classes/photos";
 
 @Component({
     selector: "app-picture-grid",
@@ -13,7 +15,8 @@ import { Picture } from "../../classes/picture";
 })
 export class PictureGridComponent implements OnInit {
 
-    pictures: Array<Picture> = [];
+    response: Photos;
+    pictures: Array<Photo> = [];
 
     //GridLayout controls
     public rows;
@@ -29,9 +32,9 @@ export class PictureGridComponent implements OnInit {
     }
 
     load() {
-        console.log("load");
         this.pictureService.getRecent().subscribe((result) => {
-            this.pictures = result;
+            this.response = result;
+            this.pictures=this.response.photo;
         });
     }
 

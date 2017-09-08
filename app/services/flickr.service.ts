@@ -2,7 +2,8 @@ import { Injectable } from "@angular/core";
 import { Http, Headers, Response } from "@angular/http";
 import { Observable, Subscription, Subject } from 'rxjs/Rx';
 
-import { Picture } from "../classes/picture";
+import { Photo } from "../classes/photo";
+import { Photos } from "../classes/photos";
 import { FlickrApiConfig } from '../classes/FlickrApiConfig';
 
 @Injectable()
@@ -13,7 +14,7 @@ export class PictureService {
 
     constructor(private http: Http) { }
 
-    getRecent(): Observable<Picture[]> {
+    getRecent(): Observable<Photos> {
         let headers = new Headers();
         headers.append('Accept', 'application/xml');
 
@@ -34,11 +35,8 @@ export class PictureService {
     }
 
     private extractData(res: Response) {
-        console.log("extractData");
-        console.log(res.json());
-
         const body = res.json();
-        return body.photos.photo || {};
+        return body.photos || {};
     }
 
     private handleError(error: Response | any) {

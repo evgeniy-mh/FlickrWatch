@@ -1,4 +1,4 @@
-export class Picture {
+export class Photo {
     id: number;
     owner:string;
     secret:string;

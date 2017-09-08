@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Picture } from '../../classes/picture';
+import { Photo } from '../../classes/photo';
 
 @Component({
     selector: 'app-picture',
@@ -10,13 +10,14 @@ import { Picture } from '../../classes/picture';
 
 export class PictureComponent implements OnInit {
 
-    @Input() picture: Picture;
+    @Input() photo: Photo;
 
     constructor() { }
 
     ngOnInit() { }
 
     getPhotoSourceURL() {
-        return `https://farm${this.picture.farm}.staticflickr.com/${this.picture.server}/${this.picture.id}_${this.picture.secret}_q.jpg`;
+        
+        return `https://farm${this.photo.farm}.staticflickr.com/${this.photo.server}/${this.photo.id}_${this.photo.secret}_q.jpg`;
     }
 }
