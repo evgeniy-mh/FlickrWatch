@@ -14,21 +14,21 @@ export class PictureComponent implements OnInit {
     @Input() photoModel: Photo;
     @ViewChild("imageTag") imageTag: ElementRef;
 
-    image:Image;
+    image: Image;
 
     constructor(private router: Router) { }
 
     ngOnInit() {
-        this.image=this.imageTag.nativeElement; //<-TODO add imade loaded callback function (for loading spinner)
-        this.image.src=this.getPhotoSourceURL();
+        this.image = this.imageTag.nativeElement; //<-TODO add imade loaded callback function (for loading spinner)
+        this.image.src = this.getPhotoSourceURL();
     }
 
-    onImageLoaded=()=>{
+    onImageLoaded = () => {
         console.log("loaded");
     }
 
-    onTap= function() {
-        this.router.navigate(["/picture-details"]);
+    onTap() {
+        this.router.navigate(["/picture-details", this.photoModel.id, this.photoModel.secret]);
     }
 
     getPhotoSourceURL() {

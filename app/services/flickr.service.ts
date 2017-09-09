@@ -9,7 +9,6 @@ import { FlickrApiConfig } from '../classes/FlickrApiConfig';
 @Injectable()
 export class PictureService {
 
-
     baseUrl = "https://api.flickr.com/services/rest/";
 
     constructor(private http: Http) { }
@@ -28,7 +27,29 @@ export class PictureService {
             .map(this.extractData)
             .catch(this.handleError); */
 
-        return this.http.get(this.baseUrl + "?method=flickr.photos.getRecent" + "&api_key=" + FlickrApiConfig.KEY + "&format=json" + "&nojsoncallback=1"
+        return this.http.get(this.baseUrl
+            + "?method=flickr.photos.getRecent"
+            + "&api_key=" + FlickrApiConfig.KEY
+            + "&format=json"
+            + "&nojsoncallback=1"
+
+            , { headers: headers })
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
+    getInfo(photo_id: number, secret: number) {
+        let headers = new Headers();
+        headers.append('Accept', 'application/xml');
+
+        return this.http.get(this.baseUrl
+            + "?method=flickr.photos.getInfo"
+            + "&api_key=" + FlickrApiConfig.KEY
+            + "&photo_id=" + photo_id
+            + "&secret=" + secret
+            + "&format=json"
+            + "&nojsoncallback=1"
+
             , { headers: headers })
             .map(this.extractData)
             .catch(this.handleError);

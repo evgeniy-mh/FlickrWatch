@@ -14,7 +14,7 @@ const routes: Routes = [
     { path: "item/:id", component: ItemDetailComponent }, */
     { path: "", redirectTo: "/picture-grid", pathMatch: "full" },
     { path: "picture-grid", component: PictureGridComponent },
-    { path: "picture-details", component: PictureDetailsComponent}
+    { path: "picture-details/:photo_id/:secret", component: PictureDetailsComponent}
 ];
 
 @NgModule({
