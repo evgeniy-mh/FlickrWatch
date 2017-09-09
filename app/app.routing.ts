@@ -6,6 +6,7 @@ import { ItemsComponent } from "./item/items.component";
 import { ItemDetailComponent } from "./item/item-detail.component";
 
 import { PictureGridComponent } from './components/picture-grid/picture-grid.component';
+import { PictureDetailsComponent } from './components/picture-details/picture-details.component';
 
 const routes: Routes = [
     /* { path: "", redirectTo: "/items", pathMatch: "full" },
@@ -13,6 +14,7 @@ const routes: Routes = [
     { path: "item/:id", component: ItemDetailComponent }, */
     { path: "", redirectTo: "/picture-grid", pathMatch: "full" },
     { path: "picture-grid", component: PictureGridComponent },
+    { path: "picture-details", component: PictureDetailsComponent}
 ];
 
 @NgModule({

@@ -8,6 +8,7 @@ import { NativeScriptHttpModule } from "nativescript-angular/http";
 import { PictureService } from './services/flickr.service';
 import { PictureGridComponent } from "./components/picture-grid/picture-grid.component";
 import { PictureComponent } from "./components/picture/picture.component";
+import { PictureDetailsComponent } from './components/picture-details/picture-details.component';
 
 @NgModule({
     bootstrap: [
@@ -22,7 +23,8 @@ import { PictureComponent } from "./components/picture/picture.component";
         AppComponent,
 
         PictureGridComponent,
-        PictureComponent
+        PictureComponent,
+        PictureDetailsComponent
     ],
     providers: [
         PictureService

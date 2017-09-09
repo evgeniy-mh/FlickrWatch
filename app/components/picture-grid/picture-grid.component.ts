@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { Observable, Subscription, Subject } from 'rxjs/Rx';
 
 import { PictureService } from '../../services/flickr.service';
@@ -25,7 +26,7 @@ export class PictureGridComponent implements OnInit {
     public rowInput;
     public colsInput = 5; //<- TODO: change with screen width
 
-    constructor(private pictureService: PictureService) { }
+    constructor(private pictureService: PictureService, private router: Router) { }
 
     ngOnInit() {  }
 

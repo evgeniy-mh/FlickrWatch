@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ViewChild, AfterContentInit, ElementRef } from '@angular/core';
+import { Router } from "@angular/router";
 import { Image } from "ui/image";
 
 import { Photo } from '../../classes/photo';
@@ -15,15 +16,19 @@ export class PictureComponent implements OnInit {
 
     image:Image;
 
-    constructor() { }
+    constructor(private router: Router) { }
 
     ngOnInit() {
-        this.image=this.imageTag.nativeElement; //<-TODO add imade loaded callback function 
+        this.image=this.imageTag.nativeElement; //<-TODO add imade loaded callback function (for loading spinner)
         this.image.src=this.getPhotoSourceURL();
     }
 
     onImageLoaded=()=>{
         console.log("loaded");
+    }
+
+    onTap= function() {
+        this.router.navigate(["/picture-details"]);
     }
 
     getPhotoSourceURL() {
