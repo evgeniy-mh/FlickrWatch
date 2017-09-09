@@ -6,7 +6,7 @@
                 <div *ngFor="let c of cols | async">
 
                     <AbsoluteLayout *ngIf="pictures[getPositionInArray(r,c)]" row={{r}} col={{c}}>
-                        <app-picture [(photo)]="pictures[getPositionInArray(r,c)]">></app-picture>
+                        <app-picture [(photoModel)]="pictures[getPositionInArray(r,c)]">></app-picture>
                     </AbsoluteLayout>
 
                 </div>

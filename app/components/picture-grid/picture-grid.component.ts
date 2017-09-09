@@ -22,19 +22,20 @@ export class PictureGridComponent implements OnInit {
     public rows;
     public cols;
 
-    public rowInput = 10;
-    public colsInput = 5;
+    public rowInput;
+    public colsInput = 5; //<- TODO: change with screen width
 
     constructor(private pictureService: PictureService) { }
 
-    ngOnInit() {
-        this.initGrid();
-    }
+    ngOnInit() {  }
 
     load() {
         this.pictureService.getRecent().subscribe((result) => {
             this.response = result;
             this.pictures=this.response.photo;
+
+            this.rowInput=result.perpage/this.colsInput;
+            this.initGrid();
         });
     }
 

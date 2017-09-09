@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, AfterContentInit, ElementRef } from '@angular/core';
+import { Image } from "ui/image";
 
 import { Photo } from '../../classes/photo';
 
@@ -7,17 +8,25 @@ import { Photo } from '../../classes/photo';
     templateUrl: './components/picture/picture.component.html',
     styleUrls: ['./components/picture/picture.component.css']
 })
-
 export class PictureComponent implements OnInit {
 
-    @Input() photo: Photo;
+    @Input() photoModel: Photo;
+    @ViewChild("imageTag") imageTag: ElementRef;
+
+    image:Image;
 
     constructor() { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.image=this.imageTag.nativeElement; //<-TODO add imade loaded callback function 
+        this.image.src=this.getPhotoSourceURL();
+    }
+
+    onImageLoaded=()=>{
+        console.log("loaded");
+    }
 
     getPhotoSourceURL() {
-        
-        return `https://farm${this.photo.farm}.staticflickr.com/${this.photo.server}/${this.photo.id}_${this.photo.secret}_q.jpg`;
+        return `https://farm${this.photoModel.farm}.staticflickr.com/${this.photoModel.server}/${this.photoModel.id}_${this.photoModel.secret}_q.jpg`;
     }
 }
