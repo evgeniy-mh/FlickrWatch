@@ -4,6 +4,8 @@ import { Observable, Subscription, Subject } from 'rxjs/Rx';
 
 import { Photo } from "../classes/photo";
 import { Photos } from "../classes/photos";
+import { GetInfoResponseModel } from "../classes/getInfoResponseModel";
+import { FlickrImageSize } from '../classes/flickrImageSize';
 import { FlickrApiConfig } from '../classes/FlickrApiConfig';
 
 @Injectable()
@@ -38,7 +40,7 @@ export class PictureService {
             .catch(this.handleError);
     }
 
-    getInfo(photo_id: number, secret: number) {
+    getInfo(photo_id: number, secret: number): Observable<GetInfoResponseModel> {
         let headers = new Headers();
         headers.append('Accept', 'application/xml');
 
@@ -51,8 +53,15 @@ export class PictureService {
             + "&nojsoncallback=1"
 
             , { headers: headers })
-            .map(this.extractData)
+            .map((res): Response => {
+                const body = res.json();
+                return body.photo || {};
+            })
             .catch(this.handleError);
+    }
+
+    public getPhotoSourceURL(farm: string, server: string, id: number, secret: string, imageSize: FlickrImageSize) {
+        return `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_${imageSize}.jpg`;
     }
 
     private extractData(res: Response) {

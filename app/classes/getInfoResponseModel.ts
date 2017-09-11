@@ -3,11 +3,12 @@ import { Visibility } from './visibility';
 import { Dates } from './dates';
 import { Usage } from './usage';
 
-export class getInfoResponseModel {
-    id: string;
+export class GetInfoResponseModel {
+    id: number;
+    title: { _content: string };
     secret: string;
     server: string;
-    farm: number;
+    farm: string;
     dateuploaded: string;
     isfavorite: number;
     license: string;
